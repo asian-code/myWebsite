@@ -528,23 +528,161 @@ footer {
   color: var(--text);
   margin-bottom: 2rem;
 }
-
-.contact-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.75rem 1.5rem;
-  background-color: #fde68a;
-  color: #111827;
-  border-radius: 9999px;
-  font-weight: 500;
-  transition: background-color 0.3s;
+/* Button */
+.frosted-glass-btn {
+  background: none; /* Transparent inside */
+  color: rgb(187, 187, 187);/* Grey */
+  padding: 0.5rem 1.5rem;
   text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid; /* Defines the button outline */
+  border-image-slice: 1; /* For gradient borders */
+  border-image-source: linear-gradient(
+    135deg,
+    rgba(155, 109, 255, 1) 0%,
+    rgba(0, 123, 255, 1) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Space between text and icon */
 }
 
-.contact-btn:hover {
-  background-color: #fcd34d;
+.frosted-glass-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(155, 109, 255, 0.4);
+  background: linear-gradient(
+    135deg,
+    rgba(155, 109, 255, 0.2) 0%,
+    rgba(0, 123, 255, 0.2) 100%
+  );
+  color: rgba(255, 255, 255, 1); /* Change text color for better contrast */
+  
+}
+.buttons-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+@media (min-width: 768px) {
+  .buttons-container {
+    justify-content: flex-start;
+  }
+}
+
+.frosted-glass-btn {
+  min-width: 150px;
+  padding: 0.75rem 1.5rem;
+}
+/* SVG Icons*/
+.frosted-glass-btn:hover svg {
+  transform: scale(1.1);
+}
+
+.frosted-glass-btn svg {
+  transition: transform 0.3s ease;
+}
+
+/* New Glassmorphism Button Style */
+.glass-btn {
+  position: relative;
+  min-width: 160px;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  overflow: hidden;
+}
+
+/* Gradient border effect */
+.glass-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    var(--accent-purple),
+    var(--accent-blue)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover Effects */
+.glass-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  box-shadow: 0 10px 20px -10px rgba(155, 109, 255, 0.3);
+}
+
+.glass-btn:hover::before {
+  opacity: 1;
+}
+
+.glass-btn:hover svg {
+  transform: scale(1.1);
+}
+
+/* Button Icon */
+.glass-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+/* Active state */
+.glass-btn:active {
+  transform: translateY(0px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Light glow effect on hover */
+.glass-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(
+    circle at center,
+    rgba(155, 109, 255, 0.1) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.glass-btn:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
 .wave-icon {
   margin-left: 0.5rem;
 }
