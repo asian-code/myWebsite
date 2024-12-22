@@ -22,7 +22,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Enhanced Cloud Animation */
+/* #region Enhanced Cloud Animation */
 .cloud-bg {
   position: fixed;
   top: 0;
@@ -82,7 +82,8 @@ body {
     transform: translate(60px, -100px) scale(1.2);
   }
 }
-
+/* #endregion */
+/* #region Navbar */
 nav {
   background: var(--bg-secondary);
   padding: 1.5rem;
@@ -167,7 +168,8 @@ nav {
   );
   color: rgba(255, 255, 255, 1); /* Change text color for better contrast */
 }
-
+/* #endregion */
+/* #region Main */
 main {
   max-width: 1200px;
   margin: 0 auto;
@@ -369,7 +371,8 @@ footer {
   transform: scale(1.05);
   background: rgba(74, 144, 226, 0.2);
 }
-/* Hero Section */
+/* #endregion */
+/* #region Hero left Section */
 .hero-section {
   width: 100%;
   max-width: 1200px;
@@ -497,7 +500,8 @@ footer {
     text-align: left;
   }
 }
-
+/* #endregion */
+/* #region Hero Right Section */
 .hello-text {
   font-size: 1.5rem;
   font-weight: 600;
@@ -545,27 +549,53 @@ footer {
   margin-left: 0.5rem;
 }
 /* Typing Effect */
-.typing-effect {
+.typing-container {
+  position: relative;
+  min-height: 3.5rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+#typing-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  white-space: nowrap;
+  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.cursor {
+  position: relative;
   display: inline-block;
-  font-size: 2rem;
-  font-family: "Courier New", monospace;
-  white-space: nowrap; /* Keeps the text in one line */
-  overflow: hidden; /* Hides the overflow text */
-  border-right: 4px solid var(--accent-blue); /* Blinking cursor effect */
-  width: 0;
-  animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+  width: 3px;
+  height: 2.8rem;
+  background-color: var(--accent-blue);
+  margin-left: 4px;
+  animation: cursorBlink 0.8s step-end infinite;
+  top: -2px;
 }
 
-/* Animation for typing effect */
-@keyframes typing {
-  to {
-    width: 80%;
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
   }
-}
-
-/* Blinking cursor effect */
-@keyframes blink {
   50% {
-    border-color: transparent;
+    opacity: 0;
   }
 }
+
+@media (min-width: 768px) {
+  #typing-text {
+    font-size: 3rem;
+  }
+  
+  .cursor {
+    height: 3.2rem;
+    top: -3px;
+  }
+}
+/* #endregion */

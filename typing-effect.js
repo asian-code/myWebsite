@@ -1,40 +1,63 @@
-let textElement = document.getElementById("typing-effect");
-let phrases = ["I'm Eric Nguyen", "{computer nerd}"];
-let currentPhraseIndex = 0;
+class TypingEffect {
+  constructor(element, phrases, options = {}) {
+    this.element = element;
+    this.phrases = phrases;
+    this.currentPhrase = 0;
+    this.currentChar = 0;
+    this.isDeleting = false;
+    this.options = {
+      typeSpeed: options.typeSpeed || 100,
+      deleteSpeed: options.deleteSpeed || 50,
+      pauseTime: options.pauseTime || 2000
+    };
+  }
 
-function typeText(phrase, callback) {
-  let index = 0;
-  let typingInterval = setInterval(() => {
-    textElement.innerHTML += phrase.charAt(index);
-    index++;
-    if (index === phrase.length) {
-      clearInterval(typingInterval);
-      callback();
+  type() {
+    const phrase = this.phrases[this.currentPhrase];
+    
+    if (this.isDeleting) {
+      // Deleting text
+      this.currentChar--;
+      if (this.currentChar < 0) {
+        this.isDeleting = false;
+        this.currentPhrase = (this.currentPhrase + 1) % this.phrases.length;
+        setTimeout(() => this.type(), 500);
+        return;
+      }
+    } else {
+      // Typing text
+      this.currentChar++;
+      if (this.currentChar > phrase.length) {
+        setTimeout(() => {
+          this.isDeleting = true;
+          this.type();
+        }, this.options.pauseTime);
+        return;
+      }
     }
-  }, 150);
+
+    this.element.textContent = phrase.substring(0, this.currentChar);
+    
+    setTimeout(() => this.type(), 
+      this.isDeleting ? this.options.deleteSpeed : this.options.typeSpeed);
+  }
+
+  start() {
+    this.type();
+  }
 }
 
-function deleteText(callback) {
-  let currentText = textElement.innerHTML;
-  let deletingInterval = setInterval(() => {
-    textElement.innerHTML = currentText.slice(0, -1);
-    currentText = textElement.innerHTML;
-    if (currentText.length === 0) {
-      clearInterval(deletingInterval);
-      callback();
+// Initialize typing effect when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const typingElement = document.getElementById('typing-text');
+  const typingEffect = new TypingEffect(
+    typingElement,
+    ["Eric Nguyen", "{Computer Nerd}"],
+    {
+      typeSpeed: 150,    // Adjust typing speed (ms)
+      deleteSpeed: 75,   // Adjust deleting speed (ms)
+      pauseTime: 2000    // Time to wait before deleting text (ms)
     }
-  }, 75);
-}
-
-function startTypingCycle() {
-  typeText(phrases[currentPhraseIndex], () => {
-    setTimeout(() => {
-      deleteText(() => {
-        currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-        startTypingCycle();
-      });
-    }, 2000); // Wait 1 second before starting to delete text
-  });
-}
-
-startTypingCycle(); // Start the cycle
+  );
+  typingEffect.start();
+});
