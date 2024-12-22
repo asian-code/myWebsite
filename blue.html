@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eric Nguyen - Cloud Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+   
+  </head>
+  <body>
+    <div class="cloud-bg">
+      <div class="glow-orb"></div>
+      <div class="glow-orb"></div>
+      <div class="glow-orb"></div>
+    </div>
+    <nav>
+      <div class="nav-content">
+        <div class="logo">{Curious Computer Nerd}</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+          <a href="#certifications">Certifications</a>
+          <a href="/path-to-your-resume.pdf" class="resume-btn" download
+            >Download Resume</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <main>
+
+      <section class="hero-section">
+        <!-- Left side - Illustration -->
+        <div class="illustration-container">
+          <div class="illustration">
+            <!-- Person -->
+            <div class="person">
+              <div class="head"></div>
+              <div class="body"></div>
+              <div class="waving-arm"></div>
+            </div>
+            <!-- Desk -->
+            <div class="desk"></div>
+            <!-- Laptop -->
+            <div class="laptop"></div>
+            <!-- Plant -->
+            <div class="plant">
+              <div class="plant-top"></div>
+              <div class="plant-base"></div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Right side - Text content -->
+        <div class="hero-content">
+          <h2 class="hello-text">HELLO!</h2>
+          <h1 class="name-text" id="typing-effect"></h1>
+          <p class="title-text">Cloud Engineer & System Administrator</p>
+          <a href="#contact" class="contact-btn">
+            Get In Touch
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="wave-icon">
+              <path d="M23 5.8V18.2C23 19.3046 22.1046 20.2 21 20.2H3C1.89543 20.2 1 19.3046 1 18.2V5.8C1 4.69543 1.89543 3.8 3 3.8H21C22.1046 3.8 23 4.69543 23 5.8Z"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+
+      <section class="hero">
+        <div class="intro">
+          <h2>About</h2>
+          <p class="subtitle">The man, the myth, the legend</p>
+          <p>
+            Hello! I'm Eric Nguyen, a passionate Cloud Engineer with expertise
+            in AWS and Azure. I specialize in designing and implementing
+            scalable, secure, and efficient cloud infrastructures. With a strong
+            background in DevOps practices, I bridge the gap between development
+            and operations to streamline processes and improve productivity.
+          </p>
+        </div>
+      </section>
+
+      <section class="skills">
+        <div class="skill-card">
+          <h3>AWS Expertise</h3>
+          <p>
+            Specialized in designing and implementing scalable cloud
+            infrastructure using AWS services.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">EC2</span>
+            <span class="tech-badge">S3</span>
+            <span class="tech-badge">Lambda</span>
+            <span class="tech-badge">VPC</span>
+            <span class="tech-badge">RDS</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Azure Solutions</h3>
+          <p>
+            Experience in building and managing enterprise-level applications on
+            Microsoft Azure.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">Azure VMs</span>
+            <span class="tech-badge">Azure Functions</span>
+            <span class="tech-badge">Azure DevOps</span>
+            <span class="tech-badge">ARM Templates</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>DevOps Practices</h3>
+          <p>
+            Implementing CI/CD pipelines and infrastructure as code for seamless
+            deployments.
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge">Terraform</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Kubernetes</span>
+            <span class="tech-badge">Git</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="cert-list">
+          <div class="tech-badge">CompTia Network+</div>
+          <div class="tech-badge">AZ-104: Microsoft Azure Administrator</div>
+          <div class="tech-badge">AWS Solutions Architect - Associate</div>
+          <div class="cert-item">CKA: Certified Kubernetes Administrator</div>
+          <div class="cert-item">
+            CISSP: Certified Information Systems Security Professional
+          </div>
+        </div>
+      </section>
+
+      <section id="contact-form">
+        <h2>Contact Me</h2>
+        <form action="#" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Send</button>
+        </form>
+      </section>
+
+    </main>
+
+    <script src="typing-effect.js"></script>
+
+    <footer>
+      <p>Eric Nguyen</p>
+    </footer>
+  </body>
+</html>
