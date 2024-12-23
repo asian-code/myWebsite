@@ -9,17 +9,19 @@ glow orb follows cursor, clikc = orb (pops expands and fades away) then new orb 
 
 Call to action - connecting on linkedin, contact me!
 
-## Would require React
-- Typing animation for the begining section (right side)
-- With a waving guy animating into frame on left side
-- contact form - input validation for form
+
 ---
+## Design:
+- Glassmorphism 
+- neumorphism
+
+
 ## Content:
 Professional summary
 Highlight projects (archetechure diagrams and their tech stack)
 Skills Section
  - Use visual icons or logos for each skill in the tech stack to make it more recognizable and appealing.
-Slow moving horizontal scrolling certs section
+Slow moving horizontal scrolling certs section that users can manually scroll
 
 
 ### To do :
