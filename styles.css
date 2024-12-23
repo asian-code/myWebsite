@@ -575,7 +575,7 @@ footer {
   left: 48%;
   width: 13%;
   transform-origin: bottom left;
-  animation: wave 2s ease-in-out infinite;
+  animation: wave 1.5s ease-in-out infinite;
   filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.2));
 }
 
@@ -633,7 +633,7 @@ footer {
 @media (min-width: 880px) {
   .hero-section {
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
 
   .hero-content {
