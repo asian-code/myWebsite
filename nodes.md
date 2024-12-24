@@ -1,14 +1,31 @@
-Add a "scroll-to-section" feature for smooth scrolling when clicking on nav bar button
-Include a sticky back-to-top button for better navigation.
-Light/Dark Mode Toggle
-Responsive desing - mobile device support
 
 custom cursor
 glow orb follows cursor, clikc = orb (pops expands and fades away) then new orb shows
-
-
+Custom scrollbar
+Light/Dark Mode Toggle
+## DONE 
+Add a "scroll-to-section" feature for smooth scrolling when clicking on nav bar button
+Include a sticky back-to-top button for better navigation.
+Responsive desing - mobile device support
 Call to action - connecting on linkedin, contact me!
 
+
+---
+Certified Cloud Security Professional (CCSP)
+Certified Information Systems Security Professional (CISSP)
+AWS Certified Security – Specialty
+Offensive Security Certified Professional (OSCP)
+Microsoft Certified: Cybersecurity Architect Expert
+
+
+AWS Certified Solutions Architect – Professional
+Microsoft Certified: Azure Security Engineer Associate
+Microsoft Certified: Azure Solutions Architect Expert
+
+
+CompTIA Security+
+CompTIA Network+
+HashiCorp Certified: Terraform Associate (003)
 
 ---
 ## Design:
@@ -18,10 +35,8 @@ Call to action - connecting on linkedin, contact me!
 
 ## Content:
 Professional summary
-Highlight projects (archetechure diagrams and their tech stack)
-Skills Section
- - Use visual icons or logos for each skill in the tech stack to make it more recognizable and appealing.
-Slow moving horizontal scrolling certs section that users can manually scroll
+Skills section - carousel (name + icon) , filter buttons for Programming language, Cloud/Devops, game dev
+Projects - grid layout (name, desc, tech stack, img)
 
 
 ### To do :
@@ -38,6 +53,107 @@ Make nav bar conver to sandwhich mode if smaller than 720
 
 
 ---
+
+## Original skill-card
+`<div class="skill-card">
+        <h3>AWS Expertise</h3>
+        <p>
+          Specialized in designing and implementing scalable cloud
+          infrastructure using AWS services.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">EC2</span>
+          <span class="tech-badge">S3</span>
+          <span class="tech-badge">Lambda</span>
+          <span class="tech-badge">VPC</span>
+          <span class="tech-badge">RDS</span>
+        </div>
+      </div>`
+
+## slideshow carousel HTML
+`<div class="showcase-container">
+        
+        <div class="showcase-track" id="certTrack">
+          <!-- Original set -->
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="CCSP Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Certified Cloud Security Professional (CCSP)</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="CISSP Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Certified Information Systems Security Professional (CISSP)</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="AWS Security Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">AWS Certified Security – Specialty</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="CompTIA Security+ Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">CompTIA Security+</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="AWS Solutions Architect Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">AWS Certified Solutions Architect – Professional</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="Azure Security Engineer Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Microsoft Certified: Azure Security Engineer Associate</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="Azure Solutions Architect Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Microsoft Certified: Azure Solutions Architect Expert</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="Cybersecurity Architect Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Microsoft Certified: Cybersecurity Architect Expert</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="OSCP Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Offensive Security Certified Professional (OSCP)</h3>
+            </div>
+          </div>
+          <!-- Cloned set for seamless loop -->
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="CCSP Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Certified Cloud Security Professional (CCSP)</h3>
+            </div>
+          </div>
+          <!-- Add more cloned cards here -->
+        </div>
+      </div>
+      <div class="showcase-controls">
+        <button class="control-btn" id="pauseBtn" aria-label="Pause scrolling">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="4" width="4" height="16"></rect>
+            <rect x="14" y="4" width="4" height="16"></rect>
+          </svg>
+        </button>
+        <button class="control-btn" id="playBtn" aria-label="Resume scrolling" style="display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </button>
+      </div>`
+
+
 ## chat box icon
 `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 64 64" fill="none">
               <g filter="url(#glass-filter)">
