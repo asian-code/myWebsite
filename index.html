@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eric Nguyen - Cloud Engineer</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 
 </head>
 
@@ -45,8 +45,8 @@
         <div class="illustration">
           <!-- Person with waving arm -->
           <div class="person">
-            <img src="person.png" alt="Person illustration" class="person-base">
-            <img src="arm.png" alt="Waving arm" class="waving-arm">
+            <img src="images/person.png" alt="Person illustration" class="person-base">
+            <img src="images/arm.png" alt="Waving arm" class="waving-arm">
           </div>
 
         </div>
@@ -108,46 +108,151 @@
       </div>
     </section>
 
-
     <section id="skills">
       <h2>Skills</h2>
-
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="coding">Coding</button>
+        <button class="filter-btn" data-filter="containers">Containers</button>
+        <button class="filter-btn" data-filter="cicd">CI/CD</button>
+        <button class="filter-btn" data-filter="monitoring">Monitoring</button>
+        <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+        <button class="filter-btn" data-filter="devops">DevOps</button>
+        <button class="filter-btn" data-filter="database">Database</button>
+      </div>
       <div class="showcase-container">
-
         <div class="showcase-track" id="certTrack">
-
-          <div class="skill-card">
-            <img src="skill-docker.png" class="cert-image">
+          
+          <!-- Infrastructure - Virtualization -->
+          <div class="skill-card-horizontal" data-category="infrastructure,devops">
+            <img src="images/skills/Hyper-V.png" alt="Hyper-V" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">Hyper-V</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="infrastructure,devops">
+            <img src="images/skills/proxmox.png" alt="Proxmox" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">Proxmox</p>
+            </div>
+          </div>
+    
+          <!-- Coding Languages -->
+          <div class="skill-card-horizontal" data-category="coding">
+            <img src="images/skills/csharp.png" alt="C#" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">C#</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="coding,devops">
+            <img src="images/skills/Python.png" alt="Python" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">Python</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="coding,devops">
+            <img src="images/skills/Powershell.png" alt="Powershell" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">Powershell</p>
+            </div>
+          </div>
+    
+          <!-- Containers -->
+          <div class="skill-card-horizontal" data-category="containers,devops">
+            <img src="images/skills/docker.png" alt="Docker" class="cert-image">
             <div class="cert-content">
               <p class="cert-name">Docker</p>
             </div>
           </div>
-
-          <div class="skill-card">
-            <img src="skill-docker.png" class="cert-image">
+    
+          <div class="skill-card-horizontal" data-category="containers,devops">
+            <img src="images/skills/Kubernetes.png" alt="Kubernetes" class="cert-image">
             <div class="cert-content">
-              <p class="cert-name">Docker</p>
+              <p class="cert-name">Kubernetes</p>
             </div>
           </div>
-
-          <div class="skill-card">
-            <img src="skill-docker.png" class="cert-image">
+    
+          <!-- CI/CD -->
+          <div class="skill-card-horizontal" data-category="cicd,devops">
+            <img src="images/skills/Jenkins.png" alt="Jenkins" class="cert-image">
             <div class="cert-content">
-              <p class="cert-name">Docker</p>
+              <p class="cert-name">Jenkins</p>
             </div>
           </div>
-
-          <div class="skill-card">
-            <img src="skill-docker.png" class="cert-image">
+    
+          <div class="skill-card-horizontal" data-category="cicd,devops">
+            <img src="images/skills/GitHub Actions.png" alt="GitHub Actions" class="cert-image">
             <div class="cert-content">
-              <p class="cert-name">Docker</p>
+              <p class="cert-name">GitHub Actions</p>
             </div>
-
-
-
           </div>
+    
+          <!-- Infrastructure -->
+          <div class="skill-card-horizontal" data-category="infrastructure,devops">
+            <img src="images/skills/HashiCorp Terraform.png" alt="Terraform" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">Terraform</p>
+            </div>
+          </div>
+    
+          <!-- Monitoring -->
+          <div class="skill-card-horizontal" data-category="monitoring,devops">
+            <img src="images/skills/Prometheus.png" alt="Prometheus" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">Prometheus</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="monitoring,devops">
+            <img src="images/skills/Grafana.png" alt="Grafana" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">Grafana</p>
+            </div>
+          </div>
+    
+          <!-- Infrastructure/DevOps -->
+          <div class="skill-card-horizontal" data-category="infrastructure,devops">
+            <img src="images/skills/Ansible.png" alt="Ansible" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">Ansible</p>
+            </div>
+          </div>
+    
+          <!-- Databases -->
+          <div class="skill-card-horizontal" data-category="database,infrastructure">
+            <img src="images/skills/MySQL.png" alt="MySql" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">MySql</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="database,infrastructure">
+            <img src="images/skills/MongoDB.png" alt="Mongodb" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">Mongodb</p>
+            </div>
+          </div>
+    
+          <!-- Infrastructure/DevOps -->
+          <div class="skill-card-horizontal" data-category="infrastructure,devops">
+            <img src="images/skills/github.png" alt="Git" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">Git</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="infrastructure,devops">
+            <img src="images/skills/Linux.png" alt="Linux" class="cert-image">
+            <div class="cert-content">
+              <p class="cert-name">Linux</p>
+            </div>
+          </div>
+    
         </div>
-
+      </div>
     </section>
 
     <section id="certs">
@@ -300,10 +405,10 @@
 
   </main>
 
-  <script src="typing-effect.js"></script>
-  <script src="navbarScale.js"></script>
-  <script src="scrollToTop.js"></script>
-  <script src="showcase.js"></script>
+  <script src="scripts/typing-effect.js"></script>
+  <script src="scripts/navbarScale.js"></script>
+  <script src="scripts/scrollToTop.js"></script>
+  <script src="scripts/showcase.js"></script>
   <!-- Back-to-Top Button -->
   <button class="back-to-top" aria-label="Scroll to top">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
