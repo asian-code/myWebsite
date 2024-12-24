@@ -30,7 +30,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-        <a href="#certifications">Certifications</a>
+        <a href="#certs">Certifications</a>
         <a href="/path-to-your-resume.pdf" class="resume-btn" download>Download Resume</a>
       </div>
     </div>
@@ -88,7 +88,7 @@
     </section>
 
 
-    <section class="hero">
+    <section class="hero" id="about">
       <div class="intro">
         <h2>About</h2>
         <p class="subtitle">The man, the myth, the legend</p>
@@ -101,8 +101,9 @@
         </p>
       </div>
     </section>
-
-    <section class="skills">
+<h2>Skills</h2>
+    <section class="skills" id="skills">
+      
       <div class="skill-card">
         <h3>AWS Expertise</h3>
         <p>
@@ -147,20 +148,182 @@
       </div>
     </section>
 
-    <section id="certifications">
+    <section id="certifications" id="certs">
       <h2>Certifications</h2>
-      <div class="cert-list">
-        <div class="tech-badge">CompTia Network+</div>
-        <div class="tech-badge">AZ-104: Microsoft Azure Administrator</div>
-        <div class="tech-badge">AWS Solutions Architect - Associate</div>
-        <div class="cert-item">CKA: Certified Kubernetes Administrator</div>
-        <div class="cert-item">
-          CISSP: Certified Information Systems Security Professional
+
+      <div class="showcase-container">
+        <div class="showcase-track" id="certTrack">
+          <!-- Original set -->
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="CCSP Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Certified Cloud Security Professional (CCSP)</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="CISSP Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Certified Information Systems Security Professional (CISSP)</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="AWS Security Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">AWS Certified Security – Specialty</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="CompTIA Security+ Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">CompTIA Security+</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="AWS Solutions Architect Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">AWS Certified Solutions Architect – Professional</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="Azure Security Engineer Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Microsoft Certified: Azure Security Engineer Associate</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="Azure Solutions Architect Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Microsoft Certified: Azure Solutions Architect Expert</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="Cybersecurity Architect Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Microsoft Certified: Cybersecurity Architect Expert</h3>
+            </div>
+          </div>
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="OSCP Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Offensive Security Certified Professional (OSCP)</h3>
+            </div>
+          </div>
+          <!-- Cloned set for seamless loop -->
+          <div class="cert-card">
+            <img src="/api/placeholder/300/180" alt="CCSP Certification" class="cert-image">
+            <div class="cert-content">
+              <h3 class="cert-name">Certified Cloud Security Professional (CCSP)</h3>
+            </div>
+          </div>
+          <!-- Add more cloned cards here -->
         </div>
+      </div>
+      <div class="showcase-controls">
+        <button class="control-btn" id="pauseBtn" aria-label="Pause scrolling">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="4" width="4" height="16"></rect>
+            <rect x="14" y="4" width="4" height="16"></rect>
+          </svg>
+        </button>
+        <button class="control-btn" id="playBtn" aria-label="Resume scrolling" style="display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </button>
       </div>
     </section>
 
-    <section id="contact-form">
+    <section class="" id="projects">
+      <h2>Projects</h2>
+ 
+      <div class="skill-card">
+        <h3>Serverless Web Application</h3>
+        <p>
+          Designed and implemented a highly scalable and cost-effective serverless web application on AWS, enabling seamless handling of high traffic loads with minimal latency.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">AWS Lambda</span>
+          <span class="tech-badge">API Gateway</span>
+          <span class="tech-badge">DynamoDB</span>
+          <span class="tech-badge">CloudFront</span>
+          <span class="tech-badge">S3</span>
+        </div>
+      </div>
+      
+      <div class="skill-card">
+        <h3>Interactive Chatbot for Customer Support</h3>
+        <p>
+          Built and deployed a natural language understanding chatbot using Amazon Lex, integrated with backend systems for dynamic responses and deployed through multiple communication channels.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">Amazon Lex</span>
+          <span class="tech-badge">AWS Lambda</span>
+          <span class="tech-badge">Amazon SNS</span>
+          <span class="tech-badge">AWS CloudWatch</span>
+          <span class="tech-badge">Amazon S3</span>
+        </div>
+      </div>
+      
+      <div class="skill-card">
+        <h3>Cloud-Native Enterprise Applications</h3>
+        <p>
+          Spearheaded the design and development of enterprise-level applications on Microsoft Azure, leveraging cloud services for reliability, scalability, and security.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">Azure VMs</span>
+          <span class="tech-badge">Azure Functions</span>
+          <span class="tech-badge">Azure DevOps</span>
+          <span class="tech-badge">Azure Kubernetes Service (AKS)</span>
+          <span class="tech-badge">ARM Templates</span>
+        </div>
+      </div>
+      
+      <div class="skill-card">
+        <h3>Image Recognition and Analysis Platform</h3>
+        <p>
+          Developed an intelligent platform for automated image recognition and categorization, enabling businesses to process large image datasets efficiently.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">AWS Rekognition</span>
+          <span class="tech-badge">AWS Lambda</span>
+          <span class="tech-badge">S3</span>
+          <span class="tech-badge">Step Functions</span>
+          <span class="tech-badge">Python</span>
+        </div>
+      </div>
+      
+      <div class="skill-card">
+        <h3>CI/CD Pipeline Automation</h3>
+        <p>
+          Implemented robust CI/CD pipelines using infrastructure-as-code principles to streamline deployment workflows and reduce time-to-market for new features.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">Jenkins</span>
+          <span class="tech-badge">Terraform</span>
+          <span class="tech-badge">GitHub Actions</span>
+          <span class="tech-badge">Docker</span>
+          <span class="tech-badge">Kubernetes</span>
+        </div>
+      </div>
+      
+      <div class="skill-card">
+        <h3>E-Commerce Microservices Platform</h3>
+        <p>
+          Built a microservices-based e-commerce platform with a Kubernetes-based architecture for seamless scalability and reliability, supporting high transaction volumes.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">AWS EKS</span>
+          <span class="tech-badge">API Gateway</span>
+          <span class="tech-badge">DynamoDB</span>
+          <span class="tech-badge">Elastic Load Balancing</span>
+          <span class="tech-badge">Prometheus</span>
+        </div>
+      </div>
+      
+    </section>
+
+
+    <section id="contact-form" id="contact">
       <h2>Contact Me</h2>
       <form action="#" method="POST">
         <label for="name">Name:</label>
@@ -180,9 +343,19 @@
 
   <script src="typing-effect.js"></script>
   <script src="navbarScale.js"></script>
+  <script src="scrollToTop.js"></script>
+  <script src="showcase.js"></script>
+<!-- Back-to-Top Button -->
+<button class="back-to-top" aria-label="Scroll to top">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
+
   <footer>
     <p>Eric Nguyen</p>
   </footer>
 </body>
 
 </html>
+

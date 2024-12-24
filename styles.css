@@ -269,6 +269,93 @@ nav {
 
 /* #endregion */
 /* #region Main */
+/* Back-to-Top Button Styles */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* Show button with animation */
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Gradient border effect */
+.back-to-top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    var(--accent-purple),
+    var(--accent-blue),
+    var(--accent-purple),
+    var(--accent-blue)
+  );
+  background-size: 400% 100%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 10px 20px -10px rgba(155, 109, 255, 0.3),
+    0 0 15px rgba(155, 109, 255, 0.2),
+    0 0 30px rgba(155, 109, 255, 0.1);
+  animation: subtleGlow 2s infinite;
+}
+
+.back-to-top:hover::before {
+  opacity: 1;
+  animation: rotateGradient 3s linear infinite;
+}
+
+/* Icon styles */
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.back-to-top:hover svg {
+  transform: scale(1.1) translateY(-2px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 main {
   max-width: 1200px;
   margin: 0 auto;
@@ -502,9 +589,9 @@ footer {
       rgba(255, 255, 255, 0.03) 100%);
   border-radius: 30px;
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 8px 32px rgba(255, 255, 255, 0.1),
     inset 0 0 32px rgba(255, 255, 255, 0.05);
   overflow: hidden;
   animation: containerFloat 6s ease-in-out infinite;
@@ -1031,5 +1118,146 @@ footer {
 
 /* #endregion */
 
+
+
+/* #region Certifications -------------*/ 
+/* Certification Showcase Styles */
+#certifications {
+  margin: 4rem auto;
+  padding: 2rem;
+  max-width: 1200px;
+  background: var(--glass-bg);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 0 30px rgba(155, 109, 255, 0.1);
+}
+
+.showcase-container {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.showcase-track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 40s linear infinite;
+}
+
+.showcase-track:hover {
+  animation-play-state: paused;
+}
+
+.cert-card {
+  min-width: 300px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  flex: 0 0 auto;
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(155, 109, 255, 0.3);
+  box-shadow: 
+    0 10px 20px -10px rgba(155, 109, 255, 0.3),
+    0 0 15px rgba(155, 109, 255, 0.2);
+}
+
+.cert-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.cert-content {
+  padding: 1.5rem;
+}
+
+.cert-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Control buttons */
+.showcase-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+  background: rgba(155, 109, 255, 0.1);
+  border-color: var(--accent-purple);
+}
+
+/* Scroll Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-300px * 9 - 2rem * 9));
+  }
+}
+
+/* Gradient fade edges */
+.showcase-container::before,
+.showcase-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+}
+
+.showcase-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+
+.showcase-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary), transparent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cert-card {
+    min-width: 260px;
+  }
+  
+  .cert-image {
+    height: 150px;
+  }
+  
+  .cert-content {
+    padding: 1rem;
+  }
+}
 /* TESTING */
 
