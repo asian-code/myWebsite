@@ -1,3 +1,8 @@
+### infra
+AWS amplify for hosting
+api gateway + lambda for backend
+Github actions to automate the deloyment
+
 
 custom cursor
 glow orb follows cursor, clikc = orb (pops expands and fades away) then new orb shows
@@ -9,6 +14,11 @@ Include a sticky back-to-top button for better navigation.
 Responsive desing - mobile device support
 Call to action - connecting on linkedin, contact me!
 
+
+
+## Mobile version
+iphone 16 = 1179
+s9 tablet = 1600
 
 ---
 Certified Cloud Security Professional (CCSP)
