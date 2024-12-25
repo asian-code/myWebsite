@@ -21,7 +21,9 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
-
+body.menu-open {
+  overflow: hidden;
+}
 /* #region Card -------------*/
 /* Base card styles (shared between both variants) */
 .card-base,
@@ -230,8 +232,8 @@ body {
 
 .glow-orb:nth-child(1) {
   /* top left */
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 450px;
   background: var(--accent-blue);
   top: 20%;
   left: 20%;
@@ -245,7 +247,7 @@ body {
   background: var(--accent-purple);
   top: 18%;
   right: 20%;
-  animation-delay: -8s;
+  animation-delay: -3s;
 }
 
 .glow-orb:nth-child(2) {
@@ -318,7 +320,6 @@ body {
   .hamburger {
     display: block;
   }
-
 
   .nav-links {
     position: fixed;
