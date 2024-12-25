@@ -39,11 +39,17 @@ body {
   box-shadow: 0 0 30px rgba(155, 109, 255, 0.2);
 }
 
-/* (Original) */
+/* Vertical Card (Original) */
 .skill-card {
   display: flex;
   flex-direction: column;
 }
+
+/* .skill-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+} */
 
 /* Horizontal Card */
 .skill-card-horizontal {
@@ -82,103 +88,6 @@ body {
     justify-content: center;
   }
 }
-/* #endregion */
-
-/* #region Certification -------------*/
-.certifications {
-  padding: 0 2rem 4rem; /* Top: 0, Right & Left: 2rem, Bottom: 4rem */
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.certifications h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-  /* font-size: 2rem; */
-}
-
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  justify-items: center;
-}
-
-.cert-card {
-  background: var(--glass-bg);
-  padding: 1.5rem;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  transition: all 0.3s ease;
-  width: 100%;
-  max-width: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.cert-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(155, 109, 255, 0.3);
-  box-shadow: 0 0 30px rgba(155, 109, 255, 0.2);
-}
-
-.cert-image {
-  width: 150px;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-}
-
-.cert-card:hover .cert-image {
-  transform: scale(1.05);
-}
-
-.cert-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.cert-card p {
-  text-align: center;
-  font-weight: 500;
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .cert-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .cert-card {
-    padding: 1.5rem;
-  }
-  
-  .cert-image {
-    width: 120px;
-    height: 120px;
-  }
-}
-
-@media (max-width: 480px) {
-  .certifications {
-    padding: 2rem 1rem;
-  }
-  
-  .cert-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
 /* #endregion */
 
 /* #region background -------------*/
@@ -1334,23 +1243,11 @@ footer {
       transparent);
 }
 
-/* Double the content Allow track to be as wide as needed */
-/*
-.showcase-track {
-  display: flex;
-  gap: 1.5rem;
-  animation: scroll 30s linear infinite;
-  
-  width: fit-content; 
-} */
-
 .showcase-track {
   display: flex;
   gap: 1.5rem;
   width: fit-content;
-  transition: transform 0.3s ease-out;
 }
-
 /* Wrapper to contain the tracks */
 .showcase-wrapper {
   display: flex;
@@ -1393,23 +1290,20 @@ footer {
   -webkit-text-fill-color: transparent;
 }
 
-/* Infinite scroll animation */
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Move by half the width */
   }
 }
-
-/* Finite scroll animation */
 @keyframes scrollOnce {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-100% + 100vw));
+    transform: translateX(-100%);
   }
 }
 

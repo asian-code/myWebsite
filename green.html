@@ -1,747 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eric Nguyen - Cloud Engineer</title>
-    <style>
-      :root {
-        --bg-primary: #0a0a0a;
-        --bg-secondary: rgba(17, 17, 17, 0.3);
-        --accent-blue: #4a90e2;
-        --accent-purple: #9b6dff;
-        --text: #ffffff;
-        --glass-border: rgba(255, 255, 255, 0.1);
-        --glass-bg: rgba(255, 255, 255, 0.05);
-      }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-        background: var(--bg-primary);
-        color: var(--text);
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-
-      /* Enhanced Cloud Animation */
-      .cloud-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        opacity: 0.2;
-      }
-
-      .glow-orb {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(100px);
-        animation: orbFloat 10s infinite;
-      }
-
-      .glow-orb:nth-child(1) {
-        width: 300px;
-        height: 300px;
-        background: var(--accent-purple);
-        top: 20%;
-        left: 20%;
-        animation-delay: -2s;
-      }
-
-      .glow-orb:nth-child(2) {
-        width: 400px;
-        height: 400px;
-        background: var(--accent-blue);
-        top: 60%;
-        right: 20%;
-        animation-delay: -4s;
-      }
-
-      .glow-orb:nth-child(3) {
-        width: 250px;
-        height: 250px;
-        background: var(--accent-purple);
-        bottom: 10%;
-        left: 30%;
-        animation-delay: -6s;
-      }
-
-      @keyframes orbFloat {
-        0%,
-        100% {
-          transform: translate(0, 0) scale(1);
-        }
-        25% {
-          transform: translate(100px, 100px) scale(1.1);
-        }
-        50% {
-          transform: translate(-80px, 60px) scale(0.9);
-        }
-        75% {
-          transform: translate(60px, -100px) scale(1.2);
-        }
-      }
-
-      nav {
-        background: var(--bg-secondary);
-        padding: 1.5rem;
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--glass-border);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-
-      .nav-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-        background: linear-gradient(
-          135deg,
-          var(--accent-purple) 0%,
-          var(--accent-blue) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-family: "Courier New", monospace;
-        text-shadow: 0 0 20px rgba(155, 109, 255, 0.5);
-      }
-
-      .nav-links a {
-        color: var(--text);
-        text-decoration: none;
-        margin-left: 2rem;
-        transition: all 0.3s ease;
-        position: relative;
-      }
-
-      .nav-links a:hover {
-        text-shadow: 0 0 10px var(--accent-purple);
-      }
-
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          var(--accent-purple),
-          var(--accent-blue)
-        );
-        transition: width 0.3s ease;
-      }
-
-      .nav-links a:hover::after {
-        width: 100%;
-      }
-      .resume-btn {
-    background: none; /* Transparent inside */
-    color: rgba(155, 109, 255, 1); /* Match one of the gradient colors */
-    padding: 0.5rem 1.5rem;
-    border-radius: 25px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 2px solid; /* Defines the button outline */
-    border-image-slice: 1; /* For gradient borders */
-    border-image-source: linear-gradient(135deg, rgba(155, 109, 255, 1) 0%, rgba(0, 123, 255, 1) 100%);
-}
-
-.resume-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(155, 109, 255, 0.4);
-    background: linear-gradient(135deg, rgba(155, 109, 255, 0.2) 0%, rgba(0, 123, 255, 0.2) 100%);
-    color: rgba(255, 255, 255, 1); /* Change text color for better contrast */
-}
-
-
-      main {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 4rem 2rem;
-        position: relative;
-      }
-
-      .hero {
-        text-align: center;
-        margin-bottom: 4rem;
-      }
-
-      .intro {
-        max-width: 800px;
-        margin: 0 auto 3rem auto;
-        padding: 2rem;
-        background: var(--glass-bg);
-        border-radius: 15px;
-        backdrop-filter: blur(10px);
-        border: 1px solid var(--glass-border);
-        box-shadow: 0 0 30px rgba(155, 109, 255, 0.1);
-        transition: all 0.3s ease;
-      }
-
-      .intro:hover {
-        border-color: rgba(155, 109, 255, 0.3);
-        box-shadow: 0 0 40px rgba(155, 109, 255, 0.2);
-      }
-
-      h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        background: linear-gradient(
-          135deg,
-          var(--accent-purple) 0%,
-          var(--accent-blue) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 30px rgba(155, 109, 255, 0.3);
-      }
-
-      .subtitle {
-        font-size: 1.5rem;
-        color: var(--accent-blue);
-        margin-bottom: 2rem;
-        opacity: 0.9;
-        text-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
-      }
-
-      .skills {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-bottom: 4rem;
-      }
-
-      .skill-card {
-        background: var(--glass-bg);
-        padding: 2rem;
-        border-radius: 15px;
-        backdrop-filter: blur(10px);
-        border: 1px solid var(--glass-border);
-        transition: all 0.3s ease;
-      }
-
-      .skill-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(155, 109, 255, 0.3);
-        box-shadow: 0 0 30px rgba(155, 109, 255, 0.2);
-      }
-
-      /* .skill-card h3 {
-        background: linear-gradient(
-          135deg,
-          var(--accent-purple) 0%,
-          var(--accent-blue) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 1rem;
-      } */
-      h3,
-      h2 {
-        background: linear-gradient(
-          135deg,
-          var(--accent-purple) 0%,
-          var(--accent-blue) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 1rem;
-      }
-
-      .tech-stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 1rem;
-      }
-
-      .tech-badge {
-        background: rgba(155, 109, 255, 0.1);
-        backdrop-filter: blur(5px);
-        border: 1px solid rgba(155, 109, 255, 0.2);
-        color: var(--text);
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-      }
-
-      .tech-badge:hover {
-        background: rgba(155, 109, 255, 0.2);
-        border-color: rgba(155, 109, 255, 0.4);
-        transform: translateY(-2px);
-        box-shadow: 0 0 15px rgba(155, 109, 255, 0.3);
-      }
-
-      footer {
-        background: var(--bg-secondary);
-        padding: 2rem;
-        text-align: center;
-        margin-top: 4rem;
-        backdrop-filter: blur(10px);
-        border-top: 1px solid var(--glass-border);
-      }
-      #contact-form {
-        margin: 4rem 0;
-        padding: 2rem;
-        background: var(--glass-bg);
-        border-radius: 15px;
-        border: 1px solid var(--glass-border);
-        backdrop-filter: blur(10px);
-        text-align: center;
-      }
-
-      #contact-form h2 {
-        margin-bottom: 1rem;
-        color: var(--accent-blue);
-      }
-
-      #contact-form label {
-        display: block;
-        margin: 1rem 0 0.5rem;
-      }
-
-      #contact-form input,
-      #contact-form textarea {
-        width: 100%;
-        padding: 0.75rem;
-        margin-bottom: 1rem;
-        border-radius: 5px;
-        border: 1px solid var(--glass-border);
-        background: var(--bg-secondary);
-        color: var(--text);
-      }
-
-      #contact-form button {
-        background: var(--accent-blue);
-        color: var(--text);
-        padding: 0.75rem 1.5rem;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-
-      #contact-form button:hover {
-        background: var(--accent-purple);
-      }
-
-      #certifications {
-        margin: 4rem 0;
-        text-align: center;
-      }
-
-      #certifications h2 {
-        color: var(--accent-purple);
-        margin-bottom: 1rem;
-      }
-
-      .cert-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-      }
-
-      .cert-item {
-        background: rgba(74, 144, 226, 0.1);
-        padding: 1rem 2rem;
-        border-radius: 20px;
-        border: 1px solid var(--accent-blue);
-        transition: transform 0.3s;
-      }
-
-      .cert-item:hover {
-        transform: scale(1.05);
-        background: rgba(74, 144, 226, 0.2);
-      }
-      /* Hero Section */
-  .hero-section {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .hero-section {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
-.illustration-container {
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  justify-content: center;
-}
-
-.illustration {
-  position: relative;
-  width: 256px;
-  height: 256px;
-}
-
-.person {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.head {
-  width: 192px;
-  height: 192px;
-  background-color: #E5E7EB;
-  border-radius: 9999px;
-}
-
-.body {
-  position: absolute;
-  top: 96px;
-  width: 128px;
-  height: 160px;
-  background-color: #D1D5DB;
-  border-radius: 9999px 9999px 0 0;
-}
-
-.waving-arm {
-  position: absolute;
-  top: 96px;
-  right: 48px;
-  width: 32px;
-  height: 96px;
-  background-color: #D1D5DB;
-  border-radius: 9999px;
-  transform-origin: bottom left;
-  animation: wave 2s ease-in-out infinite;
-}
-
-@keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(20deg); }
-}
-
-.desk {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 16px;
-  background-color: #9CA3AF;
-}
-
-.laptop {
-  position: absolute;
-  bottom: 16px;
-  right: 48px;
-  width: 96px;
-  height: 64px;
-  background-color: #4B5563;
-  border-radius: 4px;
-}
-
-.plant {
-  position: absolute;
-  bottom: 16px;
-  left: 48px;
-}
-
-.plant-top {
-  width: 32px;
-  height: 32px;
-  background-color: #34D399;
-  border-radius: 9999px;
-}
-
-.plant-base {
-  width: 24px;
-  height: 8px;
-  background-color: #4B5563;
-  border-radius: 9999px;
-  margin: 0 auto;
-}
-
-.hero-content {
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .hero-content {
-    text-align: left;
-  }
-}
-
-.hello-text {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--accent-purple);
-  margin-bottom: 0.5rem;
-}
-
-.name-text {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  position: relative;
-  display: inline-block;
-}
-
-@media (min-width: 768px) {
-  .name-text {
-    font-size: 3rem;
-  }
-}
-
-.title-text {
-  font-size: 1.25rem;
-  color: var(--text);
-  margin-bottom: 2rem;
-}
-
-.contact-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.75rem 1.5rem;
-  background-color: #FDE68A;
-  color: #111827;
-  border-radius: 9999px;
-  font-weight: 500;
-  transition: background-color 0.3s;
-  text-decoration: none;
-}
-
-.contact-btn:hover {
-  background-color: #FCD34D;
-}
-
-.wave-icon {
-  margin-left: 0.5rem;
-}
-/* Typing Animation */
-.typing-animation {
-  position: relative;
-  width: max-content;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .typing-animation {
-    margin: 0;
-  }
-}
-
-.typing-animation::before {
-  content: "";
-  animation: typing 8s infinite;
-}
-
-.typing-animation::after {
-  content: "|";
-  animation: blink 1s infinite;
-}
-
-@keyframes typing {
-  0%, 45% {
-    content: "I'm Eric Nguyen";
-  }
-  50%, 95% {
-    content: "{Curious Computer Nerd}";
-  }
-  100% {
-    content: "I'm Eric Nguyen";
-  }
-}
-
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-
-    </style>
-  </head>
-  <body>
-    <div class="cloud-bg">
-      <div class="glow-orb"></div>
-      <div class="glow-orb"></div>
-      <div class="glow-orb"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eric Nguyen - Cloud Engineer</title>
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+  <div class="cloud-bg">
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb"></div>
+  </div>
+  <nav>
+    <div class="nav-content">
+      <!-- logo -->
+      <img src="images/icon_whiteBG.svg" alt="Logo" width="64" height="64" />
+      <p class="subtitle">under development</p>
+      <!-- Add hamburger button -->
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="#certs">Certifications</a>
+        <a href="/path-to-your-resume.pdf" class="resume-btn" download>Download Resume</a>
+      </div>
     </div>
-    <nav>
-      <div class="nav-content">
-        <div class="logo">{Curious Computer Nerd}</div>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-          <a href="#certifications">Certifications</a>
-          <a href="/path-to-your-resume.pdf" class="resume-btn" download
-            >Download Resume</a
-          >
+  </nav>
+
+  <main>
+
+    <section class="hero-section">
+      <!-- Left side - Illustration -->
+      <div class="illustration-container">
+        <div class="illustration">
+          <!-- Person with waving arm -->
+          <div class="person">
+            <img src="images/person.png" alt="Person illustration" class="person-base">
+            <img src="images/arm.png" alt="Waving arm" class="waving-arm">
+          </div>
+
         </div>
       </div>
-    </nav>
 
-    <main>
 
-      <section class="hero-section">
-        <!-- Left side - Illustration -->
-        <div class="illustration-container">
-          <div class="illustration">
-            <!-- Person -->
-            <div class="person">
-              <div class="head"></div>
-              <div class="body"></div>
-              <div class="waving-arm"></div>
-            </div>
-            <!-- Desk -->
-            <div class="desk"></div>
-            <!-- Laptop -->
-            <div class="laptop"></div>
-            <!-- Plant -->
-            <div class="plant">
-              <div class="plant-top"></div>
-              <div class="plant-base"></div>
-            </div>
-          </div>
+      <!-- Right side - Text content -->
+      <div class="hero-content">
+        <h2 class="hello-text">Hello! I'm</h2>
+        <!-- <h1 class="name-text" id="typing-effect"></h1> -->
+        <div class="typing-container">
+          <span id="typing-text"></span>
+          <span class="cursor"></span>
         </div>
-      
-        <!-- Right side - Text content -->
-        <div class="hero-content">
-          <h2 class="hello-text">HELLO!</h2>
-          <h1 class="name-text typing-animation"></h1>
-          <p class="title-text">Cloud Engineer & System Administrator</p>
-          <a href="#contact" class="contact-btn">
-            Get In Touch
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="wave-icon">
-              <path d="M23 5.8V18.2C23 19.3046 22.1046 20.2 21 20.2H3C1.89543 20.2 1 19.3046 1 18.2V5.8C1 4.69543 1.89543 3.8 3 3.8H21C22.1046 3.8 23 4.69543 23 5.8Z"/>
+
+        <p class="title-text">Cloud Engineer & System Administrator</p>
+
+        <p class="contact-text">lets get in touch!</p>
+        <div class="buttons-container">
+          <a href="#contact" class="glass-btn glass-btn-purple">
+            <span>Email Me</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 4H2C1.44772 4 1 4.44772 1 5V19C1 19.5523 1.44772 20 2 20H22C22.5523 20 23 19.5523 23 19V5C23 4.44772 22.5523 4 22 4ZM12 13L2 5H22L12 13Z" />
+            </svg>
+
+          </a>
+
+          <a href="https://www.linkedin.com/in/eric-nguyenit" target="_blank" class="glass-btn glass-btn-blue">
+            <span>LinkedIn</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
             </svg>
           </a>
         </div>
-      </section>
+    </section>
 
 
-      <section class="hero">
-        <div class="intro">
-          <h2>About</h2>
-          <p class="subtitle">The man, the myth, the legend</p>
-          <p>
-            Hello! I'm Eric Nguyen, a passionate Cloud Engineer with expertise
-            in AWS and Azure. I specialize in designing and implementing
-            scalable, secure, and efficient cloud infrastructures. With a strong
-            background in DevOps practices, I bridge the gap between development
-            and operations to streamline processes and improve productivity.
-          </p>
+    <section class="hero" id="about">
+      <div class="intro">
+        <h2>About me</h2>
+        <!-- <p class="subtitle">The man, the myth, the legend</p> -->
+        <p>
+          Hello! I'm Eric Nguyen, a passionate <strong>Cloud Engineer</strong> specializing in scalable, efficient, and
+          secure cloud solutions. I thrive on solving complex challenges, from designing infrastructure to optimizing
+          performance and exploring the latest technologies.
+        </p>
+        <p>
+          Outside of work, I’m into futures trading, analyzing market trends, and refining strategies. As a programmer,
+          I’m always working on side projects and exploring the exciting world of <strong>AI</strong>.
+        </p>
+        <p>
+          My mission is to bridge the gap between innovative technology and practical implementation.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="coding">Coding</button>
+        <button class="filter-btn" data-filter="containers">Containers</button>
+        <button class="filter-btn" data-filter="devops">DevOps</button>
+        <button class="filter-btn" data-filter="database">Database</button>
+      </div>
+      <div class="showcase-container">
+        <div class="showcase-track" id="certTrack">
+    
+          <!-- Infrastructure - Virtualization -->
+          <div class="skill-card-horizontal" data-category="">
+            <img src="images/skills/Windows.png" alt="HyperV" class="cert-image">
+            <div>
+              <p>Hyper-V</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="">
+            <img src="images/skills/proxmox.png" alt="Proxmox" class="cert-image">
+            <div>
+              <p>Proxmox</p>
+            </div>
+          </div>
+    
+          <!-- Coding Languages -->
+          <div class="skill-card-horizontal" data-category="coding">
+            <img src="images/skills/csharp.png" alt="C#" class="cert-image">
+            <div>
+              <p>C#</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="coding">
+            <img src="images/skills/Python.png" alt="Python" class="cert-image">
+            <div>
+              <p>Python</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="coding">
+            <img src="images/skills/Powershell.png" alt="Powershell" class="cert-image">
+            <div>
+              <p>Powershell</p>
+            </div>
+          </div>
+    
+          <!-- Containers -->
+          <div class="skill-card-horizontal" data-category="containers,devops">
+            <img src="images/skills/docker.png" alt="Docker" class="cert-image">
+            <div>
+              <p>Docker</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="containers,devops">
+            <img src="images/skills/Kubernetes.png" alt="Kubernetes" class="cert-image">
+            <div>
+              <p>Kubernetes</p>
+            </div>
+          </div>
+    
+          <!-- CI/CD -->
+          <div class="skill-card-horizontal" data-category="devops">
+            <img src="images/skills/Jenkins.png" alt="Jenkins" class="cert-image">
+            <div>
+              <p>Jenkins</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="devops">
+            <img src="images/skills/GitHub Actions.png" alt="GitHub Actions" class="cert-image">
+            <div>
+              <p>GitHub Actions</p>
+            </div>
+          </div>
+    
+          <!-- Infrastructure -->
+          <div class="skill-card-horizontal" data-category="devops">
+            <img src="images/skills/HashiCorp Terraform.png" alt="Terraform" class="cert-image">
+            <div>
+              <p>Terraform</p>
+            </div>
+          </div>
+    
+          <!-- Monitoring -->
+          <div class="skill-card-horizontal" data-category="devops">
+            <img src="images/skills/Prometheus.png" alt="Prometheus" class="cert-image">
+            <div>
+              <p>Prometheus</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="devops">
+            <img src="images/skills/Grafana.png" alt="Grafana" class="cert-image">
+            <div>
+              <p>Grafana</p>
+            </div>
+          </div>
+    
+          <!-- Infrastructure/DevOps -->
+          <div class="skill-card-horizontal" data-category="devops">
+            <img src="images/skills/Ansible.png" alt="Ansible" class="cert-image">
+            <div>
+              <p>Ansible</p>
+            </div>
+          </div>
+    
+          <!-- Databases -->
+          <div class="skill-card-horizontal" data-category="database">
+            <img src="images/skills/MySQL.png" alt="MySql" class="cert-image">
+            <div>
+              <p>MySql</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="database">
+            <img src="images/skills/MongoDB.png" alt="Mongodb" class="cert-image">
+            <div>
+              <p>Mongodb</p>
+            </div>
+          </div>
+    
+          <!-- Infrastructure/DevOps -->
+          <div class="skill-card-horizontal" data-category="devops">
+            <img src="images/skills/github.png" alt="Git" class="cert-image">
+            <div>
+              <p>Git</p>
+            </div>
+          </div>
+    
+          <div class="skill-card-horizontal" data-category="devops">
+            <img src="images/skills/Linux.png" alt="Linux" class="cert-image">
+            <div>
+              <p>Linux</p>
+            </div>
+          </div>
+    
         </div>
-      </section>
+      </div>
+    </section>
+    
 
-      <section class="skills">
+    <section id="certs">
+      <h2>Certifications</h2>
+      <div class="skills">
         <div class="skill-card">
-          <h3>AWS Expertise</h3>
-          <p>
-            Specialized in designing and implementing scalable cloud
-            infrastructure using AWS services.
-          </p>
-          <div class="tech-stack">
-            <span class="tech-badge">EC2</span>
-            <span class="tech-badge">S3</span>
-            <span class="tech-badge">Lambda</span>
-            <span class="tech-badge">VPC</span>
-            <span class="tech-badge">RDS</span>
-          </div>
+          <p>CompTIA Security+</p>
+          <img src="path/to/your/image.png" />
         </div>
 
         <div class="skill-card">
-          <h3>Azure Solutions</h3>
-          <p>
-            Experience in building and managing enterprise-level applications on
-            Microsoft Azure.
-          </p>
-          <div class="tech-stack">
-            <span class="tech-badge">Azure VMs</span>
-            <span class="tech-badge">Azure Functions</span>
-            <span class="tech-badge">Azure DevOps</span>
-            <span class="tech-badge">ARM Templates</span>
-          </div>
+          <p>AWS Certified Solutions Architect - Professional</p>
+          <img src="path/to/your/image.png" />
         </div>
 
         <div class="skill-card">
-          <h3>DevOps Practices</h3>
-          <p>
-            Implementing CI/CD pipelines and infrastructure as code for seamless
-            deployments.
-          </p>
-          <div class="tech-stack">
-            <span class="tech-badge">Terraform</span>
-            <span class="tech-badge">Docker</span>
-            <span class="tech-badge">Kubernetes</span>
-            <span class="tech-badge">Git</span>
-          </div>
+          <p>AWS Certified Security - Specialty</p>
+          <img src="path/to/your/image.png" />
         </div>
-      </section>
 
-      <section id="certifications">
-        <h2>Certifications</h2>
-        <div class="cert-list">
-          <div class="tech-badge">CompTia Network+</div>
-          <div class="tech-badge">AZ-104: Microsoft Azure Administrator</div>
-          <div class="tech-badge">AWS Solutions Architect - Associate</div>
-          <div class="cert-item">CKA: Certified Kubernetes Administrator</div>
-          <div class="cert-item">
-            CISSP: Certified Information Systems Security Professional
-          </div>
+        <div class="skill-card">
+          <p>Microsoft Certified: Azure Solutions Architect Expert</p>
+          <img src="path/to/your/image.png" />
         </div>
-      </section>
 
-      <section id="contact-form">
-        <h2>Contact Me</h2>
-        <form action="#" method="POST">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
+        <div class="skill-card">
+          <p>HashiCorp Certified: Terraform Associate</p>
+          <img src="path/to/your/image.png" />
+        </div>
 
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+        <div class="skill-card">
+          <p>Microsoft Certified: Azure Solutions Architect Expert</p>
+          <img src="path/to/your/image.png" />
+        </div>
+      </div>
 
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
+    </section>
 
-          <button type="submit">Send</button>
-        </form>
-      </section>
+    <section class="" id="projects">
+      <h2>Projects</h2>
 
-    </main>
+      <div class="skill-card">
+        <h3>Serverless Web Application</h3>
+        <p>
+          Designed and implemented a highly scalable and cost-effective serverless web application on AWS, enabling
+          seamless handling of high traffic loads with minimal latency.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">AWS Lambda</span>
+          <span class="tech-badge">API Gateway</span>
+          <span class="tech-badge">DynamoDB</span>
+          <span class="tech-badge">CloudFront</span>
+          <span class="tech-badge">S3</span>
+        </div>
+      </div>
 
-    <footer>
-      <p>Eric Nguyen</p>
-    </footer>
-  </body>
+      <div class="skill-card">
+        <h3>Interactive Chatbot for Customer Support</h3>
+        <p>
+          Built and deployed a natural language understanding chatbot using Amazon Lex, integrated with backend systems
+          for dynamic responses and deployed through multiple communication channels.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">Amazon Lex</span>
+          <span class="tech-badge">AWS Lambda</span>
+          <span class="tech-badge">Amazon SNS</span>
+          <span class="tech-badge">AWS CloudWatch</span>
+          <span class="tech-badge">Amazon S3</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3>Cloud-Native Enterprise Applications</h3>
+        <p>
+          Spearheaded the design and development of enterprise-level applications on Microsoft Azure, leveraging cloud
+          services for reliability, scalability, and security.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">Azure VMs</span>
+          <span class="tech-badge">Azure Functions</span>
+          <span class="tech-badge">Azure DevOps</span>
+          <span class="tech-badge">Azure Kubernetes Service (AKS)</span>
+          <span class="tech-badge">ARM Templates</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3>Image Recognition and Analysis Platform</h3>
+        <p>
+          Developed an intelligent platform for automated image recognition and categorization, enabling businesses to
+          process large image datasets efficiently.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">AWS Rekognition</span>
+          <span class="tech-badge">AWS Lambda</span>
+          <span class="tech-badge">S3</span>
+          <span class="tech-badge">Step Functions</span>
+          <span class="tech-badge">Python</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3>CI/CD Pipeline Automation</h3>
+        <p>
+          Implemented robust CI/CD pipelines using infrastructure-as-code principles to streamline deployment workflows
+          and reduce time-to-market for new features.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">Jenkins</span>
+          <span class="tech-badge">Terraform</span>
+          <span class="tech-badge">GitHub Actions</span>
+          <span class="tech-badge">Docker</span>
+          <span class="tech-badge">Kubernetes</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h3>E-Commerce Microservices Platform</h3>
+        <p>
+          Built a microservices-based e-commerce platform with a Kubernetes-based architecture for seamless scalability
+          and reliability, supporting high transaction volumes.
+        </p>
+        <div class="tech-stack">
+          <span class="tech-badge">AWS EKS</span>
+          <span class="tech-badge">API Gateway</span>
+          <span class="tech-badge">DynamoDB</span>
+          <span class="tech-badge">Elastic Load Balancing</span>
+          <span class="tech-badge">Prometheus</span>
+        </div>
+      </div>
+
+    </section>
+
+
+    <section id="contact-form" id="contact">
+      <h2>Contact Me</h2>
+      <form action="#" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+  </main>
+
+  <script src="scripts/typing-effect.js"></script>
+  <script src="scripts/navbarScale.js"></script>
+  <script src="scripts/scrollToTop.js"></script>
+  <script src="scripts/scroll-test.js"></script>
+  <!-- Back-to-Top Button -->
+  <button class="back-to-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+
+  <footer>
+    <p>Eric Nguyen</p>
+  </footer>
+</body>
+
 </html>
