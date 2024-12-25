@@ -22,11 +22,12 @@ AWS Certified Solutions Architect – Professional
 Microsoft Certified: Azure Security Engineer Associate
 Microsoft Certified: Azure Solutions Architect Expert
 
-
+---
+Microsoft Certified: Azure Administrator Associate
 CompTIA Security+
 CompTIA Network+
 HashiCorp Certified: Terraform Associate (003)
-
+AWS Certified Solutions Architect – Associate
 ---
 ## Design:
 - Glassmorphism 
