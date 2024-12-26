@@ -44,7 +44,7 @@ document.querySelectorAll(".nav-links a").forEach((link) => {
 
       // Calculate positions
       const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset;
+      const offsetPosition = elementPosition + window.scrollY;
       const windowHeight = window.innerHeight;
       const elementHeight = targetElement.offsetHeight;
       const centerOffset = (windowHeight - elementHeight) / 2;

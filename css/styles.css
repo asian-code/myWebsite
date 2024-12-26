@@ -1,6 +1,7 @@
 :root {
   --bg-primary: #0a0a0a;
   --bg-secondary: rgba(17, 17, 17, 0.3);
+  --bg-secondary-rgb: 17, 17, 17;
   --accent-blue: #4a90e2;
   --accent-purple: #9b6dff;
   --text: #ffffff;
@@ -53,6 +54,7 @@ body.menu-open {
 .skill-card {
   display: flex;
   flex-direction: column;
+  margin-bottom: .5rem;
 }
 
 /* Horizontal Card */
@@ -372,7 +374,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.5); */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease;
@@ -415,7 +417,16 @@ nav {
 }
 
 /* Mobile styles */
-@media (max-width: 840px) {
+@media (max-width:700px) {
+  main { /* set the main content z-index for the blur*/
+    position: relative;
+    z-index: 1;
+  }
+  nav {
+    position: relative;
+    z-index: 1000;
+  }
+
   .hamburger {
     display: block;
   }
@@ -428,18 +439,21 @@ nav {
     width: 100%;
     height: auto;
     max-height: 80vh;
-    background: var(--bg-secondary);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(var(--bg-secondary-rgb), 0.8); /* Update background to use RGB with opacity */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* For Safari support */
     border-bottom: 1px solid var(--glass-border);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem 4rem 2rem;
+
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1001;
     overflow-y: auto;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .nav-links.active {
@@ -450,6 +464,7 @@ nav {
   .nav-links a {
     margin: 0;
     font-size: 1.2rem;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);
   }
 
   /* Hamburger animation */
@@ -480,6 +495,14 @@ nav {
 /* #endregion */
 /* #region Main -------------*/
 /* Back-to-Top Button Styles */
+.projects-section {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  /* align-items: center; */
+  max-width: 1200px;
+}
+  
 .back-to-top {
   position: fixed;
   bottom: 20px;
@@ -562,9 +585,10 @@ html {
 }
 
 main {
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 0rem 2rem 4rem 2rem;
+ /* padding: [top] [right] [bottom] [left];*/
   position: relative;
 }
 
@@ -1420,20 +1444,6 @@ footer {
   }
 }
 
-/* Responsive adjustments */
-/* @media (max-width: 768px) {
-  .slide-card {
-    min-width: 260px;
-  }
-  
-  .slide-image {
-    height: 150px;
-  }
-  
-  .slide-content {
-    padding: 1rem;
-  }
-} */
 /* For larger screens */
 @media (min-width: 1200px) {
   .slide-card {
