@@ -2,7 +2,7 @@ function initializeShowcase() {
   const track = document.getElementById('SkillsTrack');
   const container = document.querySelector('.showcase-container');
   const filterButtons = document.querySelectorAll('.filter-btn');
-  
+  const styleAnimation ='scroll 30s linear infinite';
   let isPaused = false;
   let originalTrackItems = track.innerHTML;
   
@@ -34,13 +34,13 @@ function initializeShowcase() {
     const totalItemsWidth = visibleItems.reduce((width, item) => 
       width + item.offsetWidth + gap, 0) - gap;
       
-    return visibleItems.length > 4 && totalItemsWidth > containerWidth;
+    return visibleItems.length > 5 && totalItemsWidth > containerWidth;
   }
 
   // Function to apply the scroll animation
   function applyScrollAnimation(trackElement) {
     if (shouldScroll(trackElement)) {
-      trackElement.style.animation = 'scroll 30s linear infinite';
+      trackElement.style.animation = styleAnimation;
       trackElement.style.animationPlayState = isPaused ? 'paused' : 'running';
     } else {
       trackElement.style.animation = 'none';
@@ -98,7 +98,7 @@ function initializeShowcase() {
         if (shouldScroll(track)) {
           track.style.transform = '';
           requestAnimationFrame(() => {
-            track.style.animation = 'scrollOnce 15s linear';
+            track.style.animation = styleAnimation;
             if (isPaused) {
               track.style.animationPlayState = 'paused';
             }
@@ -113,7 +113,7 @@ function initializeShowcase() {
     if (e.animationName === 'scrollOnce' && shouldScroll(track)) {
       track.style.animation = 'none';
       track.offsetHeight; // Trigger reflow
-      track.style.animation = 'scrollOnce 15s linear';
+      track.style.animation = styleAnimation;
       if (isPaused) {
         track.style.animationPlayState = 'paused';
       }
