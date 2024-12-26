@@ -180,12 +180,14 @@ body.menu-open {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .project-image img {
   max-width: 100%;
   height: auto;
   border-radius: 20px;
+
 }
 
 @media (min-width: 801px) {
@@ -199,6 +201,11 @@ body.menu-open {
 
   .tech-stack {
     gap: 0.4rem;
+  }
+
+  .project-image img {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
   }
 }
 
