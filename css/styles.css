@@ -432,7 +432,8 @@ nav {
   }
 
   .nav-links {
-    display: none;
+    /* display: none; */
+    visibility: hidden;
     position: fixed;
     top: -100%;
     left: 0;
@@ -449,7 +450,13 @@ nav {
     gap: 2rem;
     padding: 6rem 2rem 4rem 2rem;
 
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 
+    transform 0.5s cubic-bezier(0.33, 1, 0.68, 1),
+    visibility 0.5s cubic-bezier(0.33, 1, 0.68, 1),
+    opacity 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+
+    transform: translateY(-100%);
+
     z-index: 1001;
     overflow-y: auto;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -457,15 +464,34 @@ nav {
   }
 
   .nav-links.active {
-    display: flex;
+    /* Update active state */
+    visibility: visible;
+    opacity: 1;
     top: 0;
+    transform: translateY(0);
   }
 
   .nav-links a {
     margin: 0;
     font-size: 1.2rem;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+    /* Add transform animation for links */
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
   }
+  /* Add animation for links when menu is active */
+  .nav-links.active a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Add staggered animation delay for each link */
+  .nav-links a:nth-child(1) { transition-delay: 0.1s; }
+  .nav-links a:nth-child(2) { transition-delay: 0.15s; }
+  .nav-links a:nth-child(3) { transition-delay: 0.2s; }
+  .nav-links a:nth-child(4) { transition-delay: 0.25s; }
+  .nav-links a:nth-child(5) { transition-delay: 0.3s; }
 
   /* Hamburger animation */
   .hamburger.active span:nth-child(1) {
