@@ -4,25 +4,33 @@ document
     event.preventDefault();
 
     // Check if form is locked
-    const lastSubmitTime = localStorage.getItem('lastFormSubmit');
+    const lastSubmitTime = localStorage.getItem("lastFormSubmit");
     const cooldownPeriod = 2 * 60 * 1000; // 2 minutes in milliseconds
-    
-    if (lastSubmitTime && Date.now() - parseInt(lastSubmitTime) < cooldownPeriod) {
-      const remainingTime = Math.ceil((parseInt(lastSubmitTime) + cooldownPeriod - Date.now()) / 1000);
+
+    if (
+      lastSubmitTime &&
+      Date.now() - parseInt(lastSubmitTime) < cooldownPeriod
+    ) {
+      const remainingTime = Math.ceil(
+        (parseInt(lastSubmitTime) + cooldownPeriod - Date.now()) / 1000
+      );
       alert(`Please wait ${remainingTime} seconds before submitting again.`);
       return;
     }
 
     try {
       // Get reCAPTCHA token
-      const token = await grecaptcha.execute('6LfMYKcqAAAAAI_7AXyr5QhmMKvip8VjV4zdoRoN', {action: 'submit'});
+      const token = await grecaptcha.execute(
+        "6LfMYKcqAAAAAI_7AXyr5QhmMKvip8VjV4zdoRoN",
+        { action: "submit" }
+      );
 
       // Collect form data
       const formData = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         message: document.getElementById("message").value,
-        recaptchaToken: token
+        recaptchaToken: token,
       };
 
       // Disable submit button while processing
@@ -43,38 +51,55 @@ document
 
       if (response.ok) {
         // Store submission time
-        localStorage.setItem('lastFormSubmit', Date.now().toString());
-        
+        localStorage.setItem("lastFormSubmit", Date.now().toString());
+
         // Clear the form fields
         document.getElementById("name").value = "";
         document.getElementById("email").value = "";
         document.getElementById("message").value = "";
         document.getElementById("char-count").textContent = "0/700";
-        
+
         alert("Your message has been sent successfully!");
-        
+
         // Start cooldown timer
         updateCooldownTimer();
+      } else if (response.status === 400) {
+        const errorData = await response.json();
+        let errorMessage = "Invalid submission: ";
+
+        // Check for specific error conditions in the response
+        if (errorData.message.includes("required")) {
+          errorMessage += "Missing required fields.";
+        } else if (errorData.message.includes("reCAPTCHA")) {
+          errorMessage += "reCAPTCHA verification failed. Please try again.";
+        } else if (errorData.message.includes("length")) {
+          errorMessage += "One or more inputs exceed maximum length.";
+        } else {
+          errorMessage +=
+            errorData.message || "Please check your inputs and try again.";
+        }
+
+        alert(errorMessage);
       } else {
         const errorData = await response.json();
-        alert(`Failed to send message: ${errorData.message || "Unknown error"}`);
+        alert(
+          `Failed to send message: ${errorData.message || "Unknown error"}`
+        );
       }
     } catch (error) {
       console.error("Error sending message:", error);
       alert(
         "A client LOGIC error occurred while sending your message. Please try again later."
       );
-    } finally {
-      // Re-enable submit button
-      const submitButton = this.querySelector('button[type="submit"]');
-      submitButton.disabled = false;
     }
   });
 
 // Add this function to update the cooldown timer
 function updateCooldownTimer() {
-  const submitButton = document.querySelector('#contact-form button[type="submit"]');
-  const lastSubmitTime = parseInt(localStorage.getItem('lastFormSubmit'));
+  const submitButton = document.querySelector(
+    '#contact-form button[type="submit"]'
+  );
+  const lastSubmitTime = parseInt(localStorage.getItem("lastFormSubmit"));
   const cooldownPeriod = 2 * 60 * 1000; // 2 minutes in milliseconds
 
   if (lastSubmitTime) {
@@ -89,9 +114,9 @@ function updateCooldownTimer() {
         submitButton.disabled = true;
         setTimeout(updateTimer, 1000);
       } else {
-        submitButton.textContent = 'Send';
+        submitButton.textContent = "Send";
         submitButton.disabled = false;
-        localStorage.removeItem('lastFormSubmit');
+        localStorage.removeItem("lastFormSubmit");
       }
     };
 
@@ -100,4 +125,4 @@ function updateCooldownTimer() {
 }
 
 // Add this line to check cooldown status when page loads
-document.addEventListener('DOMContentLoaded', updateCooldownTimer);
+document.addEventListener("DOMContentLoaded", updateCooldownTimer);
