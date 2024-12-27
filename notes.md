@@ -3,11 +3,12 @@ AWS amplify for hosting
 api gateway + lambda for backend
 Github actions to automate the deloyment
 
-
+#### optional
 custom cursor
 glow orb follows cursor, clikc = orb (pops expands and fades away) then new orb shows
 Custom scrollbar
 Light/Dark Mode Toggle
+
 ## DONE 
 Add a "scroll-to-section" feature for smooth scrolling when clicking on nav bar button
 Include a sticky back-to-top button for better navigation.
@@ -16,11 +17,10 @@ Call to action - connecting on linkedin, contact me!
 
 
 
-## Mobile version
+## Certs
 iphone 16 = 1179
 s9 tablet = 1600
 
----
 Certified Cloud Security Professional (CCSP)
 Certified Information Systems Security Professional (CISSP)
 AWS Certified Security – Specialty
@@ -54,13 +54,6 @@ Projects - grid layout (name, desc, tech stack, img)
 - publish on aws with s3 + cloudfront
 - design github actions workflow to upload main branch
 - post on linkedin letting people know about the techstack and the new website. ask for feedback and critisim 
-
-# NOTES:
-When screen size is below 880 width. it becomes tooo cramped
-Make nav bar conver to sandwhich mode if smaller than 720
-<div class="typing-container"> needs to be centered when screen is small
-<div class="illustration-container"> needs to be smaller when screen is small
-<div class="buttons-container"> needs to be centered when screen is small
 
 
 ---

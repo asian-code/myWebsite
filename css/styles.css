@@ -28,7 +28,12 @@ body.menu-open {
   position: fixed;
   width: 100%;
 }
-
+/* .grecaptcha-badge { above the back to top button
+  bottom: 100px !important;
+} */
+.grecaptcha-badge {
+  visibility: hidden;
+}
 /* #region Modal/lightbox effect -------------*/
 .modal {
   display: none;
@@ -915,6 +920,16 @@ footer {
   margin: 1rem 0 0.5rem;
 }
 
+#contact-form small {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+#contact-form small:hover {
+  opacity: 1;
+}
 #contact-form input,
 #contact-form textarea {
   width: 100%;

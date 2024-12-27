@@ -7,6 +7,7 @@
   <title>Eric Nguyen - Cloud Engineer</title>
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://www.google.com/recaptcha/api.js?render=6LfMYKcqAAAAAI_7AXyr5QhmMKvip8VjV4zdoRoN"></script>
+
 </head>
 
 <body>
@@ -359,77 +360,7 @@
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-content">
-          <h3>This Website</h3>
-          <div class="project-description">
-            <p>
-              Crafted a personal portfolio website to highlight my skills and projects, with an emphasis on responsive
-              design. Fun fact: I get a Discord message when you use the contact form below. 🎉
-            </p>
-          </div>
-          <div class="tech-stack">
-            <span class="tech-badge">HTML</span>
-            <span class="tech-badge">CSS</span>
-            <span class="tech-badge">Javascript</span>
-            <span class="tech-badge">AWS Amplify</span>
-            <span class="tech-badge">S3</span>
-            <span class="tech-badge">AWS Lambda</span>
-            <span class="tech-badge">API Gateway</span>
-          </div>
-        </div>
-        <div class="project-image">
-          <img src="images/projects/website-diagram.png" alt="Project Diagram">
 
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-content">
-          <h3>3-Tier Multi-AZ Application</h3>
-          <div class="project-description">
-            <p>
-              Engineered a 3-tier web application on AWS, leveraging a multi-AZ architecture to guarantee high
-              availability and resilience. Utilized Docker to streamline deployment and scalability, ensuring robust
-              performance and seamless user experience across diverse environments. </p>
-          </div>
-          <div class="tech-stack">
-            <span class="tech-badge">ECS</span>
-            <span class="tech-badge">Docker</span>
-            <span class="tech-badge">Github Actions</span>
-            <span class="tech-badge">Terraform</span>
-            <span class="tech-badge">RDS</span>
-            <span class="tech-badge">Nodejs</span>
-            <span class="tech-badge">ALB</span>
-          </div>
-        </div>
-        <div class="project-image">
-          <img src="images/projects/3tier-app.svg" alt="Project Diagram">
-
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-content">
-          <h3>CI/CD Pipeline Automation</h3>
-          <div class="project-description">
-            <p>
-              Implemented robust Continuous Integration and Continuous Deployment (CI/CD) pipeline for a Python
-              application using GitHub Actions. The pipeline automates code quality checks, testing, and deployment,
-              ensuring a seamless and reliable workflow for application updates.
-            </p>
-          </div>
-          <div class="tech-stack">
-            <span class="tech-badge">ECR</span>
-            <span class="tech-badge">GitHub Actions</span>
-            <span class="tech-badge">Docker</span>
-          </div>
-        </div>
-        <div class="project-image">
-          <img src="images/icon_whiteBG.svg" style="width: 200px;" alt="Project Diagram"> <!-- Placeholder image -->
-
-        </div>
-      </div>
       <div class="project-card">
         <div class="project-content">
           <h3>Parental Control Application</h3>
@@ -466,6 +397,79 @@
 
         </div>
       </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>3-Tier Multi-AZ Application</h3>
+          <div class="project-description">
+            <p>
+              Engineered a 3-tier web application on AWS, leveraging a multi-AZ architecture to guarantee high
+              availability and resilience. Utilized Docker to streamline deployment and scalability, ensuring robust
+              performance and seamless user experience across diverse environments. </p>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-badge">ECS</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Github Actions</span>
+            <span class="tech-badge">Terraform</span>
+            <span class="tech-badge">RDS</span>
+            <span class="tech-badge">Nodejs</span>
+            <span class="tech-badge">ALB</span>
+          </div>
+        </div>
+        <div class="project-image">
+          <img src="images/projects/3tier-app.svg" alt="Project Diagram">
+
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>This Website</h3>
+          <div class="project-description">
+            <p>
+              Crafted a personal portfolio website to highlight my skills and projects, with an emphasis on responsive
+              design. Fun fact: I get a Discord message when you use the contact form below. 🎉
+            </p>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+            <span class="tech-badge">Javascript</span>
+            <span class="tech-badge">AWS Amplify</span>
+            <span class="tech-badge">S3</span>
+            <span class="tech-badge">AWS Lambda</span>
+            <span class="tech-badge">API Gateway</span>
+          </div>
+        </div>
+        <div class="project-image">
+          <img src="images/projects/website-diagram.png" alt="Project Diagram">
+
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>CI/CD Pipeline Automation</h3>
+          <div class="project-description">
+            <p>
+              Implemented robust Continuous Integration and Continuous Deployment (CI/CD) pipeline for a Python
+              application using GitHub Actions. The pipeline automates code quality checks, testing, and deployment,
+              ensuring a seamless and reliable workflow for application updates.
+            </p>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-badge">ECR</span>
+            <span class="tech-badge">GitHub Actions</span>
+            <span class="tech-badge">Docker</span>
+          </div>
+        </div>
+        <div class="project-image">
+          <img src="images/icon_whiteBG.svg" style="width: 200px;" alt="Project Diagram"> <!-- Placeholder image -->
+
+        </div>
+      </div>
+
       <!-- 
         <h3>E-Commerce Microservices Platform</h3>
         <p>
@@ -496,14 +500,16 @@
         <label for="message">Message: <span id="char-count">0/700</span></label>
         <textarea id="message" name="message" rows="5" maxlength="700" required
           oninput="updateCharCount(this)"></textarea>
-        
+
         <button type="submit">Send</button>
+        <small>This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</small>
       </form>
+
     </section>
 
   </main>
   <script>
-  
+
     function updateCharCount(textarea) {
       const maxLength = 700;
       const currentLength = textarea.value.length;
