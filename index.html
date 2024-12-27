@@ -192,12 +192,12 @@
           </div>
 
           <!-- CI/CD -->
-          <div class="skill-card-horizontal" data-category="devops">
+          <!-- <div class="skill-card-horizontal" data-category="devops">
             <img src="images/skills/Jenkins.png" alt="Jenkins">
             <div>
               <p>Jenkins</p>
             </div>
-          </div>
+          </div> -->
 
           <div class="skill-card-horizontal" data-category="devops">
             <img src="images/skills/GitHub Actions.png" alt="GitHub Actions">
@@ -348,7 +348,7 @@
           <div class="tech-stack">
             <span class="tech-badge">AWS Lambda</span>
             <span class="tech-badge">API Gateway</span>
-            <span class="tech-badge">DynamoDB</span>
+            <span class="tech-badge">RDS</span>
             <span class="tech-badge">CloudFront</span>
             <span class="tech-badge">S3</span>
           </div>
@@ -361,11 +361,11 @@
 
       <div class="project-card">
         <div class="project-content">
-          <h3>This website</h3>
+          <h3>This Website</h3>
           <div class="project-description">
             <p>
               Crafted a personal portfolio website to highlight my skills and projects, with an emphasis on responsive
-              design. Fun fact: I get a Discord notification whenever you use the contact form below. 🎉
+              design. Fun fact: I get a Discord message when you use the contact form below. 🎉
             </p>
           </div>
           <div class="tech-stack">
@@ -386,22 +386,24 @@
 
       <div class="project-card">
         <div class="project-content">
-          <h3>Image Recognition and Analysis Platform</h3>
+          <h3>3-Tier Multi-AZ Application</h3>
           <div class="project-description">
             <p>
-              Developed an intelligent platform for automated image recognition and categorization
+              Developed a 3-tier web application with multi-AZ architecture on AWS, ensuring high availability and Docker
             </p>
           </div>
           <div class="tech-stack">
-            <span class="tech-badge">AWS Rekognition</span>
-            <span class="tech-badge">AWS Lambda</span>
-            <span class="tech-badge">S3</span>
-            <span class="tech-badge">Step Functions</span>
-            <span class="tech-badge">Python</span>
+            <span class="tech-badge">ECS</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">Github Actions</span>
+            <span class="tech-badge">Terraform</span>
+            <span class="tech-badge">RDS</span>
+            <span class="tech-badge">Nodejs</span>
+            <span class="tech-badge">ALB</span>
           </div>
         </div>
         <div class="project-image">
-          <img src="images/projects/serverless.svg" alt="Project Diagram">
+          <img src="images/projects/3tier-app.svg" alt="Project Diagram">
 
         </div>
       </div>
@@ -411,23 +413,52 @@
           <h3>CI/CD Pipeline Automation</h3>
           <div class="project-description">
             <p>
-              Implemented robust CI/CD pipelines using infrastructure-as-code principles to streamline deployment
-              workflows
-              and reduce time-to-market for new features.
+              Implemented robust Continuous Integration and Continuous Deployment (CI/CD) pipeline for a Python application using GitHub Actions. The pipeline automates code quality checks, testing, and deployment, ensuring a seamless and reliable workflow for application updates.
             </p>
           </div>
           <div class="tech-stack">
-            <span class="tech-badge">Terraform</span>
+            <span class="tech-badge">ECR</span>
             <span class="tech-badge">GitHub Actions</span>
             <span class="tech-badge">Docker</span>
           </div>
         </div>
         <div class="project-image">
-          <img src="images/projects/serverless.svg" alt="Project Diagram">
+          <img src="images/icon_whiteBG.svg" style="width: 200px;" alt="Project Diagram"> <!-- Placeholder image -->
 
         </div>
       </div>
+      <div class="project-card">
+        <div class="project-content">
+          <h3>Parental Control Application</h3>
+          <div class="project-description">
+            <!-- <p>(inspired by teramind, an employee tracking platform)</p> -->
+            <p>
+              Developed a robust parental control application for Windows using Python, designed to promote safe and responsible online behavior.
+          </p>
+          <!-- <strong>Key Features:</strong> -->
+          <ul>
+              <li>
+                  <strong>Activity Monitoring:</strong> Captures key logs, screenshots, and screen recordings for detailed user activity insights.
+              </li>
+              <li>
+                  <strong>Real-Time Alerts:</strong> Integrates Twilio API to send SMS notifications for immediate parental intervention.
+              </li>
+              <li>
+                  <strong>Content Filtering:</strong> Actively blocks access to unwanted or harmful content to create a safer online environment.
+              </li>
+          </ul>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-badge">S3</span>
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Twilio API</span>
+          </div>
+        </div>
+        <div class="project-image">
+          <img src="images/icon_whiteBG.svg" style="width: 200px;" alt="Project Diagram"> <!-- Placeholder image -->
 
+        </div>
+      </div>
       <!-- 
         <h3>E-Commerce Microservices Platform</h3>
         <p>
@@ -448,7 +479,7 @@
 
     <section id="contact-form">
       <h2>Contact Me</h2>
-      <form action="#" method="POST">
+      <form method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required />
 
@@ -469,6 +500,7 @@
   <script src="scripts/scrollToTop.js"></script>
   <script src="scripts/showcase.js"></script>
   <script src="scripts/modal.js"></script>
+  <script src="scripts/contactform.js"></script>
   <!-- Back-to-Top Button -->
   <button class="back-to-top" aria-label="Scroll to top">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
