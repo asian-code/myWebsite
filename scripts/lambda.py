@@ -77,7 +77,7 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                     "message": "reCAPTCHA verification failed"
                 })
             }
-
+        print("<<<<<<< Recaptcha verified")
         # Validate field lengths
         field_limits = {
             "name": 50,
@@ -98,6 +98,7 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                         "current_length": len(event[field])
                     })
                 }
+        print("<<<<<<< length checks verified")
 
         # Create the message payload for Discord
         discord_message = {
@@ -122,6 +123,7 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 ]
             }]
         }
+        print("<<<<<<< discord payload created")
 
         # Send the data to Discord webhook
         response = requests.post(
@@ -130,22 +132,28 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             json=discord_message,
             timeout=5
         )
+        print("<<<<<<< message sent")
 
         # Check if request was successful
         response.raise_for_status()
-        
+        print("<<<<<<< Program finished, returning success 200")
         return {
             "statusCode": 200,
             "headers": {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "https://www.eric-n.com"
-            },
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "https://www.eric-n.com",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
+    },
             "body": json.dumps({
                 "message": "Message sent successfully"
             })
         }
+    
 
     except requests.exceptions.RequestException as e:
+        print("<<<<<<< Other error: ",str(e))
+
         return {
             "statusCode": 502,
             "headers": {
@@ -158,6 +166,8 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             })
         }
     except Exception as e:
+        print(f"<<<<<<< Catch exception, returning 500 - {str(e)}")
+
         return {
             "statusCode": 500,
             "headers": {
@@ -169,3 +179,4 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 "error": str(e)
             })
         }
+#Access-Control-Allow-Origin' header is present on the requested resource.

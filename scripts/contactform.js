@@ -33,7 +33,6 @@ document
 
       if (response.ok) {
         alert("Your message has been sent successfully!");
-        this.reset();
         document.getElementById("char-count").textContent = "0/700";
       } else {
         const errorData = await response.json();
@@ -42,7 +41,7 @@ document
     } catch (error) {
       console.error("Error sending message:", error);
       alert(
-        "An error occurred while sending your message. Please try again later."
+        "A client LOGIC error occurred while sending your message. Please try again later."
       );
     } finally {
       // Re-enable submit button
