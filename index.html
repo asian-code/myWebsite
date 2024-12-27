@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eric Nguyen - Cloud Engineer</title>
   <link rel="stylesheet" href="css/styles.css">
-
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfMYKcqAAAAAI_7AXyr5QhmMKvip8VjV4zdoRoN"></script>
 </head>
 
 <body>
@@ -389,7 +389,9 @@
           <h3>3-Tier Multi-AZ Application</h3>
           <div class="project-description">
             <p>
-              Engineered a 3-tier web application on AWS, leveraging a multi-AZ architecture to guarantee high availability and resilience. Utilized Docker to streamline deployment and scalability, ensuring robust performance and seamless user experience across diverse environments.            </p>
+              Engineered a 3-tier web application on AWS, leveraging a multi-AZ architecture to guarantee high
+              availability and resilience. Utilized Docker to streamline deployment and scalability, ensuring robust
+              performance and seamless user experience across diverse environments. </p>
           </div>
           <div class="tech-stack">
             <span class="tech-badge">ECS</span>
@@ -412,7 +414,9 @@
           <h3>CI/CD Pipeline Automation</h3>
           <div class="project-description">
             <p>
-              Implemented robust Continuous Integration and Continuous Deployment (CI/CD) pipeline for a Python application using GitHub Actions. The pipeline automates code quality checks, testing, and deployment, ensuring a seamless and reliable workflow for application updates.
+              Implemented robust Continuous Integration and Continuous Deployment (CI/CD) pipeline for a Python
+              application using GitHub Actions. The pipeline automates code quality checks, testing, and deployment,
+              ensuring a seamless and reliable workflow for application updates.
             </p>
           </div>
           <div class="tech-stack">
@@ -432,20 +436,24 @@
           <div class="project-description">
             <!-- <p>(inspired by teramind, an employee tracking platform)</p> -->
             <p>
-              Developed a robust parental control application for Windows using Python, designed to promote safe and responsible online behavior.
-          </p>
-          <!-- <strong>Key Features:</strong> -->
-          <ul>
+              Developed a robust parental control application for Windows using Python, designed to promote safe and
+              responsible online behavior.
+            </p>
+            <!-- <strong>Key Features:</strong> -->
+            <ul>
               <li>
-                  <strong>Activity Monitoring:</strong> Captures key logs, screenshots, and screen recordings for detailed user activity insights.
+                <strong>Activity Monitoring:</strong> Captures key logs, screenshots, and screen recordings for detailed
+                user activity insights.
               </li>
               <li>
-                  <strong>Real-Time Alerts:</strong> Integrates Twilio API to send SMS notifications for immediate parental intervention.
+                <strong>Real-Time Alerts:</strong> Integrates Twilio API to send SMS notifications for immediate
+                parental intervention.
               </li>
               <li>
-                  <strong>Content Filtering:</strong> Actively blocks access to unwanted or harmful content to create a safer online environment.
+                <strong>Content Filtering:</strong> Actively blocks access to unwanted or harmful content to create a
+                safer online environment.
               </li>
-          </ul>
+            </ul>
           </div>
           <div class="tech-stack">
             <span class="tech-badge">S3</span>
@@ -480,25 +488,26 @@
       <h2>Contact Me</h2>
       <form method="POST">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
+        <input type="text" id="name" name="name" maxlength="50" required />
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+        <input type="email" id="email" name="email" maxlength="70" required />
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit" class="g-recaptcha" 
-        data-sitekey="6LfMYKcqAAAAAI_7AXyr5QhmMKvip8VjV4zdoRoN" 
-        data-callback='onSubmit' 
-        data-action='submit'>Send</button>
+        <label for="message">Message: <span id="char-count">0/700</span></label>
+        <textarea id="message" name="message" rows="5" maxlength="700" required
+          oninput="updateCharCount(this)"></textarea>
+        
+        <button type="submit">Send</button>
       </form>
     </section>
 
   </main>
   <script>
-    function onSubmit(token) {
-      document.getElementById("contact-form").submit();
+  
+    function updateCharCount(textarea) {
+      const maxLength = 700;
+      const currentLength = textarea.value.length;
+      document.getElementById('char-count').textContent = `${currentLength}/${maxLength}`;
     }
   </script>
   <script src="scripts/typing-effect.js"></script>
@@ -507,7 +516,6 @@
   <script src="scripts/showcase.js"></script>
   <script src="scripts/modal.js"></script>
   <script src="scripts/contactform.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js"></script>
   <!-- Back-to-Top Button -->
   <button class="back-to-top" aria-label="Scroll to top">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
