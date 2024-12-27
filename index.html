@@ -389,8 +389,7 @@
           <h3>3-Tier Multi-AZ Application</h3>
           <div class="project-description">
             <p>
-              Developed a 3-tier web application with multi-AZ architecture on AWS, ensuring high availability and Docker
-            </p>
+              Engineered a 3-tier web application on AWS, leveraging a multi-AZ architecture to guarantee high availability and resilience. Utilized Docker to streamline deployment and scalability, ensuring robust performance and seamless user experience across diverse environments.            </p>
           </div>
           <div class="tech-stack">
             <span class="tech-badge">ECS</span>
@@ -489,18 +488,26 @@
         <label for="message">Message:</label>
         <textarea id="message" name="message" rows="5" required></textarea>
 
-        <button type="submit">Send</button>
+        <button type="submit" class="g-recaptcha" 
+        data-sitekey="6LfMYKcqAAAAAI_7AXyr5QhmMKvip8VjV4zdoRoN" 
+        data-callback='onSubmit' 
+        data-action='submit'>Send</button>
       </form>
     </section>
 
   </main>
-
+  <script>
+    function onSubmit(token) {
+      document.getElementById("contact-form").submit();
+    }
+  </script>
   <script src="scripts/typing-effect.js"></script>
   <script src="scripts/navbarScale.js"></script>
   <script src="scripts/scrollToTop.js"></script>
   <script src="scripts/showcase.js"></script>
   <script src="scripts/modal.js"></script>
   <script src="scripts/contactform.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
   <!-- Back-to-Top Button -->
   <button class="back-to-top" aria-label="Scroll to top">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"

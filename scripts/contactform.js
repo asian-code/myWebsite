@@ -22,6 +22,7 @@
                 // Check if the response is successful
                 if (response.ok) {
                     alert('Your message has been sent successfully!');
+                    document.getElementById('contact-form').reset();
                 } else {
                     const errorData = await response.json();
                     alert(`Failed to send message: ${errorData.message || 'Unknown error'}`);
